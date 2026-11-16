@@ -40,6 +40,11 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href="/credits" className={linkClass}>
+                Credits
+              </Link>
+            </li>
           </ul>
         </nav>
 
