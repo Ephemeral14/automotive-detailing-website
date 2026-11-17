@@ -7,6 +7,7 @@ import { ServiceAdvice } from "@/components/sections/services/ServiceAdvice";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { DemoNote } from "@/components/ui/DemoNote";
 import { photos } from "@/data/images";
+import { pageSocial } from "@/lib/seo";
 
 const title = "Detailing Services";
 const description =
@@ -15,7 +16,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  openGraph: { title: `${title} — Noir Auto Studio`, description, url: "/services" },
+  ...pageSocial({ title: `${title} — Noir Auto Studio`, description, path: "/services" }),
   alternates: { canonical: "/services" },
 };
 

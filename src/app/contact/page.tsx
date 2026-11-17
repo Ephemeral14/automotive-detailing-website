@@ -4,6 +4,7 @@ import { BookingSection } from "@/components/sections/contact/BookingSection";
 import { NextSteps } from "@/components/sections/contact/NextSteps";
 import { ButtonLink } from "@/components/ui/Button";
 import { photos } from "@/data/images";
+import { pageSocial } from "@/lib/seo";
 
 const title = "Contact & Booking";
 const description =
@@ -12,7 +13,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  openGraph: { title: `${title} — Noir Auto Studio`, description, url: "/contact" },
+  ...pageSocial({ title: `${title} — Noir Auto Studio`, description, path: "/contact" }),
   alternates: { canonical: "/contact" },
 };
 

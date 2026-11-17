@@ -9,6 +9,7 @@ import { PhilosophySection } from "@/components/sections/about/PhilosophySection
 import { StandardsSection } from "@/components/sections/about/StandardsSection";
 import { StudioSection } from "@/components/sections/about/StudioSection";
 import { photos } from "@/data/images";
+import { pageSocial } from "@/lib/seo";
 
 const title = "About the Studio";
 const description =
@@ -17,7 +18,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  openGraph: { title: `${title} — Noir Auto Studio`, description, url: "/about" },
+  ...pageSocial({ title: `${title} — Noir Auto Studio`, description, path: "/about" }),
   alternates: { canonical: "/about" },
 };
 

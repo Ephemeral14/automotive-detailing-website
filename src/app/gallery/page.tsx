@@ -9,6 +9,7 @@ import { DemoNote } from "@/components/ui/DemoNote";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { photos } from "@/data/images";
+import { pageSocial } from "@/lib/seo";
 
 const description =
   "A curated gallery of exterior, interior, ceramic coating and paint correction finishes — filter by discipline and view each frame full-screen. Illustrative photography.";
@@ -16,11 +17,7 @@ const description =
 export const metadata: Metadata = {
   title: "Gallery",
   description,
-  openGraph: {
-    title: "Gallery — Noir Auto Studio",
-    description,
-    url: "/gallery",
-  },
+  ...pageSocial({ title: "Gallery — Noir Auto Studio", description, path: "/gallery" }),
   alternates: { canonical: "/gallery" },
 };
 

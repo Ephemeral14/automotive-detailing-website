@@ -9,6 +9,7 @@ import { AddOnsSection } from "@/components/sections/pricing/AddOnsSection";
 import { PricingFaqSection } from "@/components/sections/pricing/PricingFaqSection";
 import { photos } from "@/data/images";
 import { bookingHref } from "@/lib/site";
+import { pageSocial } from "@/lib/seo";
 
 const title = "Pricing & Packages";
 const description =
@@ -17,7 +18,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  openGraph: { title: `${title} — Noir Auto Studio`, description, url: "/pricing" },
+  ...pageSocial({ title: `${title} — Noir Auto Studio`, description, path: "/pricing" }),
   alternates: { canonical: "/pricing" },
 };
 

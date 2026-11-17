@@ -3,13 +3,16 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { photos } from "@/data/images";
 import { DemoNote } from "@/components/ui/DemoNote";
+import { pageSocial } from "@/lib/seo";
+
+const description =
+  "Credits for the Unsplash photography, typefaces and icons used on the Noir Auto Studio portfolio website.";
 
 export const metadata: Metadata = {
   title: "Photo Credits",
-  description:
-    "Credits for the Unsplash photography, typefaces and icons used on the Noir Auto Studio portfolio website.",
+  description,
   alternates: { canonical: "/credits" },
-  openGraph: { title: "Photo Credits", url: "/credits" },
+  ...pageSocial({ title: "Photo Credits — Noir Auto Studio", description, path: "/credits" }),
 };
 
 const uniquePhotos = Object.values(photos).filter(

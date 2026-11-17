@@ -7,13 +7,34 @@
  *  - the e-mail and site domains use the reserved `.example` TLD.
  */
 
+const PLACEHOLDER_URL = "https://noir-auto-studio.example";
+
+/**
+ * Single source of truth for the absolute site origin — used by metadataBase
+ * (canonical + Open Graph), robots.txt and sitemap.xml. A trailing slash is
+ * stripped so `${siteUrl}${path}` never produces a double slash, and a real
+ * production build refuses to ship with the placeholder domain.
+ */
+function resolveSiteUrl(): string {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (!raw) {
+    if (process.env.VERCEL_ENV === "production") {
+      throw new Error("NEXT_PUBLIC_SITE_URL must be set for production builds (canonical URLs, sitemap, robots).");
+    }
+    return PLACEHOLDER_URL;
+  }
+  return new URL(raw).origin;
+}
+
+const siteUrl = resolveSiteUrl();
+
 export const siteConfig = {
   name: "Noir Auto Studio",
   wordmark: "NOIR",
   tagline: "Perfection in every detail.",
   description:
     "Noir Auto Studio is a premium automotive detailing studio — paint correction, ceramic coating, paint protection film and meticulous interior care for discerning owners. (Fictional portfolio concept.)",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://noir-auto-studio.example",
+  url: siteUrl,
   /** Displayed in the footer. Fixed at build time to keep pages fully static. */
   copyrightYear: 2026,
 } as const;

@@ -7,7 +7,7 @@ import { Intro } from "@/components/sections/home/Intro";
 import { ServicesPreview } from "@/components/sections/home/ServicesPreview";
 import { Testimonials } from "@/components/sections/home/Testimonials";
 import { WhyChooseUs } from "@/components/sections/home/WhyChooseUs";
-import { siteConfig } from "@/lib/site";
+import { pageSocial } from "@/lib/seo";
 
 const title = "Noir Auto Studio — Premium Automotive Detailing";
 const description =
@@ -16,13 +16,7 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
-  openGraph: {
-    type: "website",
-    siteName: siteConfig.name,
-    title,
-    description,
-    url: "/",
-  },
+  ...pageSocial({ title, description, path: "/" }),
   alternates: { canonical: "/" },
 };
 
